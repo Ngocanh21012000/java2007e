@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai3</title>
+</head>
+<style>
+        * {
+      margin: 0;
+      padding: 0;
+    }
+    ul {
+
+      list-style-type: none;
+      text-align: center;
+    }
+    li {
+      background:pink;
+      display: inline-block;
+      width: 220px;
+      height: 100px;
+      line-height: 100px;
+    
+      position: relative;
+      border: 1px solid black;
+      
+    }
+
+    li:hover{
+      background-color: white;
+
+    }
+    #menu > ul > li > ul {
+            display: none; 
+            position: absolute;
+    }  
+    #menu ul li:hover ul{
+            display: block;
+    }
+    .menu-item{
+        position: absolute;
+        
+    }
+    .sub-menu li > ul{
+		display: none;
+		position: absolute;
+    }
+    .menu-item li{
+    	margin-left: 220px; 
+      top: -100px;
+    	display: none; 
+    }
+    .sub-menu li:hover .menu-item li{
+    	display: block;
+    }
+</style>
+<body>
+    <h1 style="color: red;">Tạo menu đa cấp ngang 1 tầng và 2 tầng</h1>
+    <br>
+    <div class="container">
+        <div id="menu" >
+            <ul>
+                <li>Trang chủ</li>
+                <li>Quần áo nam
+                    <ul class="sub-menu">
+                        <li>Áo cộc tay</li>
+                        <li>Quần Jean</li>
+                        <li>Đồng hồ đeo tay
+                            <ul class="menu-item">
+                                <li>Đông hồ casio</li>
+                                <li>Đồng hồ rolex</li>
+                                <li>Đồng hồ hàng mã</li>
+                            </ul>
+                         </li>
+                    </ul>
+                </li>
+                <li>Quần áo nữ</li>
+                <li>Quần áo trẻ em</li>
+            </ul>
+        </div>    
+    </div>
+  
+
+   
+</body>
+</html>
