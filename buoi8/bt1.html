@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            margin: auto;
+            background-color:#73C259;
+            height: 300px;
+            width: 300px;
+            position: relative;
+        }
+        .content{
+            position: absolute;
+            background-color: ivory;
+            text-align: center;
+            padding: 20px;
+            margin: 30px;
+            
+            
+            height: 200px;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- tạo form đăng nhập và chức năng đăng nhập:nếu login sai thì hiển thị " sai mk ỏ tên đăng nhập" nếu tên đăng nhập đúng chuyển đến trang mới có chữ " xin chòa bạn" -->
+    <div class="container">
+        <div class="content">
+            <input id="username" type="text" placeholder="Username..">
+            <br><br>
+            <input id="password" type="text" placeholder="Password..">
+            <br><br>
+            <button onclick="login()" >login</button>
+        </div>
+    </div> 
+    <script>
+    
+    function login() {
+        //var listInput = document.getElementsByTagName("input");
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        console.log(username, password);
+        if (username === 'ngocanh' && password === '2101') {
+          //  alert("welcome"); là hiển thị ra
+            document.write("Xin chào bạn")// nhảy sang một trang mới
+        } else {
+           // alert("Invalid username or password");
+           document.write("bạn đã nhập sai mk or tên đăng nhập ")
+        }
+    }
+    </script> 
+    /
+    <!--  note bài 2 -->
+    <script></script>
+ 
+</body>
+</html>

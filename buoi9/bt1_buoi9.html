@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai1</title>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+</head>
+<style>
+    .container{
+        margin: auto;
+        width: 300px;
+        height: 550px;
+        border: 1px solid black;
+    
+    }
+    .content{
+        margin-left: 10px;
+       
+    }
+</style>
+<body>
+    <div class="container" >
+       <button style="width:100%;background-color: blue;height: 40px;">Đăng kí tài khoản</button>
+       <div class="content">
+           <p>Tên</p>
+           <input onkeyup="checkLogin()" id="username" type="text">
+           <span class="message" style="display:inline-block;"></span>
+           <p>Email</p>
+           <input id="email" type="text">
+           <span class="message" style="display:inline-block;"></span>
+           <p>Mật khẩu</p>
+           <input id="password" type="text">
+           <span class="message" style="display:inline-block;"></span>
+           <p>Xác nhận mật khẩu</p>
+           <input id="repassword" type="text">
+           <span class="message" style="display:inline-block;"></span>
+           <p>Số điện thoại</p>
+           <input id="phone" type="text">
+           <span class="message" style="display:inline-block;"></span>
+           <p>Nhập địa chỉ</p>
+           <input id="adress" type="text">
+           <span class="message" style="display:inline-block;"></span>
+       </div>
+       <br>
+       <button id="account" style="width:40%; text-align: center;margin-left: 90px;background-color: blue;">Tạo tài khoản</button>
+    </div>
+</body>
+<script>
+    $('#username').on('keyup', function(){
+  var user = $(this).val();
+ 
+  if(user.length < 6) {
+    $(this).next('.message').text(" bạn phải nhập đủ 6 kí tự")
+  } else {
+    // the username is 6 or more characters and we hide the error
+    $(this).next('.message').text("đã thành công")
+  }
+});
+ 
+$('#email').on('keyup', function(){
+  // email regex source http://stackoverflow.com/a/17968929/477958
+  var mail = $(this).val();
+ 
+  var pattern = new RegExp(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/);// so sánh với mẫu gmail
+  if(!pattern.test(mail)) {// so sánh vs toàn bộ phần tử
+    $(this).next('.message').text("bạn nhập sai email")
+  } else {
+    $(this).next('.message').text("đã thành công")// this: lấy ra phần tử hiện tại
+  }
+});
+$('#password').on('keyup' ,function(){
+    var pass = $(this).val()
+    if(pass.length<6){
+        $(this).next('.message').text(" nhập đủ 6 kí tự")
+
+    }else{
+        $(this).next('.message').text("đã thành công") 
+    }
+})
+$('#repassword').on('keyup', function(){
+  var pw = $('#password').val();// lấy ra or set noi dung cho thẻ input
+  var repw = $(this).val();
+ 
+  if(pw.length < 4 || pw != repw) {
+    $(this).next('.message').text("nhap lai")// text: lấy ra or set noi dung chp 1 phan tử
+  } else if(pw == repw) {
+    $(this).next('.message').text("đã thành công")
+  }
+})
+$('#phone').on('keyup',function(){
+    var check = $(this).val();
+    if(check.length<9||check.length>12){
+        $(this).next('.message').text(" nhập kí tự trong khoảng 9-12")  
+    }else{
+        $(this).next('.message').text(" đã thành công")
+    }
+})
+$('#account').on('click',function(){
+    
+   alert("tạo tài khaonr thành công,")
+})
+</script>
+<!-- <script>
+    function checkLogin() {
+       
+        var username = document.getElementById("username").value.length;
+        var message1 = document.getElementById("message1");
+      
+       
+        if (username<6){
+            message1.innerHTML="tên phải nhập ít nhất 6 kí tự"
+            message1.style.display = "inline-block";
+        }
+         else {
+            message1.innerHTML="đã thành công"
+            message1.style.display = "inline-block";
+        }
+    }
+   
+    function register() {
+        var us = document.getElementById("us").value.length;
+        var pw = document.getElementById("pass").value;
+        var repw = document.getElementById("repass").value;
+        if (pw != repw || us < 6) {
+            alert("Not OK");
+            return;
+        } else {
+            alert("REGISTER SUCCESSFULLY !");
+            return;
+        }
+    }
+
+    function checkEquals() {
+        var pw = document.getElementById("pass");
+        var repw = document.getElementById("repass");
+
+        var message = document.getElementById("message");
+
+        if (pw.value != repw.value) {
+            message.innerHTML = " Định lừa tao à";
+            message.style.display = "inline-block";
+            message.style.color = "red";
+          
+
+            pw.classList.add("error");
+
+            repw.classList.add("error");
+
+            pw.classList.remove("success");
+            repw.classList.remove("success");
+        } else {
+            message.innerHTML = " Đúng rồi đó";
+            message.style.display = "inline-block";
+            message.style.color = "green";
+
+            pw.classList.add("success");
+            repw.classList.add("success");
+
+            pw.classList.remove("error");
+            repw.classList.remove("error");
+        }
+    }
+
+</script> -->
+</html>
